@@ -80,7 +80,7 @@ $ git log -1 --pretty=format:"%h - %an: %s (%cr)"
 ### 🌐 Direct Transmission
 
 <p align="center">
-  <a href="https://linkedin.com/in/YOUR_LINKEDIN_HANDLE"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+  <a href="https://www.linkedin.com/in/sachin-upadhyay-/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
   <a href="https://x.com/YOUR_TWITTER_HANDLE"><img src="https://img.shields.io/badge/X-Follow%20Along-000000?style=for-the-badge&logo=x&logoColor=white" alt="Twitter"/></a>
   <a href="mailto:us038786@gmail.com"><img src="https://img.shields.io/badge/Email-Encrypted%20Transmission-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
 </p>
