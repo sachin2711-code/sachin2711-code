@@ -6,31 +6,6 @@
       <stop offset="50%" stop-color="#0d111a" />
       <stop offset="100%" stop-color="#050811" />
     </linearGradient>
-
-    <!-- Typing Animations -->
-    <clipPath id="clip-cmd1">
-      <rect x="0" y="0" height="24" width="0">
-        <animate attributeName="width" from="0" to="200" begin="0.3s" dur="0.8s" fill="freeze" />
-      </rect>
-    </clipPath>
-
-    <clipPath id="clip-cmd2">
-      <rect x="0" y="0" height="24" width="0">
-        <animate attributeName="width" from="0" to="240" begin="2.2s" dur="0.9s" fill="freeze" />
-      </rect>
-    </clipPath>
-
-    <clipPath id="clip-cmd3">
-      <rect x="0" y="0" height="24" width="0">
-        <animate attributeName="width" from="0" to="310" begin="4.2s" dur="1.0s" fill="freeze" />
-      </rect>
-    </clipPath>
-
-    <clipPath id="clip-cmd4">
-      <rect x="0" y="0" height="24" width="0">
-        <animate attributeName="width" from="0" to="270" begin="6.4s" dur="0.9s" fill="freeze" />
-      </rect>
-    </clipPath>
   </defs>
 
   <style>
@@ -39,38 +14,40 @@
       50%, 100% { opacity: 0; }
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
     .f-mono {
-      font-family: 'Fira Code', 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: 'Fira Code', 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace;
     }
     .cursor {
       animation: blink 0.8s infinite;
       fill: #00f2fe;
     }
-    .prompt-sym { fill: #ff3366; font-weight: bold; }
-    .cmd-text { fill: #f0f6fc; font-weight: 600; font-size: 15px; }
-    .output-text { fill: #8b949e; font-size: 14px; }
-    .highlight-cyan { fill: #00f2fe; }
-    .highlight-green { fill: #00e676; }
-    .highlight-orange { fill: #ff9100; }
-    .highlight-purple { fill: #b388ff; }
+    .prompt { fill: #ff3366; font-weight: bold; font-size: 15px; }
+    .cmd { fill: #f0f6fc; font-weight: 600; font-size: 15px; }
+    .output { fill: #8b949e; font-size: 14px; }
+    .cyan { fill: #00f2fe; }
+    .green { fill: #00e676; }
+    .yellow { fill: #f1e05a; }
+    .orange { fill: #ff9100; }
+    .purple { fill: #b388ff; }
 
-    /* Output appearance delays */
-    .out-1 { opacity: 0; animation: fadeIn 0.4s ease 1.2s forwards; }
-    .line-2 { opacity: 0; animation: fadeIn 0.1s ease 2.1s forwards; }
-    .out-2 { opacity: 0; animation: fadeIn 0.4s ease 3.2s forwards; }
-    .line-3 { opacity: 0; animation: fadeIn 0.1s ease 4.1s forwards; }
-    .out-3 { opacity: 0; animation: fadeIn 0.4s ease 5.3s forwards; }
-    .line-4 { opacity: 0; animation: fadeIn 0.1s ease 6.3s forwards; }
-    .final-cursor { opacity: 0; animation: fadeIn 0.1s ease 7.4s forwards; }
+    /* Sequential Line-by-Line Reveals */
+    .step-1 { opacity: 0; animation: fadeIn 0.3s ease 0.3s forwards; }
+    .step-2 { opacity: 0; animation: fadeIn 0.4s ease 1.1s forwards; }
+    .step-3 { opacity: 0; animation: fadeIn 0.3s ease 2.0s forwards; }
+    .step-4 { opacity: 0; animation: fadeIn 0.4s ease 2.8s forwards; }
+    .step-5 { opacity: 0; animation: fadeIn 0.3s ease 3.8s forwards; }
+    .step-6 { opacity: 0; animation: fadeIn 0.4s ease 4.6s forwards; }
+    .step-7 { opacity: 0; animation: fadeIn 0.3s ease 5.5s forwards; }
+    .step-8 { opacity: 0; animation: fadeIn 0.2s ease 6.2s forwards; }
   </style>
 
   <!-- Window Container -->
   <rect x="2" y="2" width="846" height="376" rx="12" fill="url(#bgGrad)" stroke="#1e2638" stroke-width="2" />
   
-  <!-- Subtle Header Border -->
+  <!-- Window Header Bar -->
   <line x1="2" y1="44" x2="848" y2="44" stroke="#1e2638" stroke-width="1.5" />
   
   <!-- Window Controls -->
@@ -79,84 +56,62 @@
   <circle cx="64" cy="23" r="6" fill="#27c93f" />
 
   <!-- Window Title -->
-  <text x="425" y="27" fill="#6e7681" font-size="13" text-anchor="middle" class="f-mono">
-    sachin@system-telemetry: ~/workspace (zsh)
+  <text x="425" y="28" fill="#6e7681" font-size="13" text-anchor="middle" class="f-mono">
+    sachin@telemetry-os: ~/workspace (zsh)
   </text>
   
-  <!-- Terminal Content Area -->
-  <g transform="translate(30, 80)" class="f-mono">
-    
-    <!-- LINE 1: $ whoami -->
-    <g transform="translate(0, 0)">
-      <text x="0" y="0" class="prompt-sym">$</text>
-      <g clip-path="url(#clip-cmd1)">
-        <text x="20" y="0" class="cmd-text">whoami</text>
-      </g>
-    </g>
+  <!-- LINE 1: $ whoami (y=88) -->
+  <text x="35" y="88" class="f-mono step-1">
+    <tspan class="prompt">$ </tspan>
+    <tspan class="cmd">whoami</tspan>
+  </text>
 
-    <!-- OUTPUT 1 -->
-    <g transform="translate(20, 26)" class="out-1">
-      <text x="0" y="0" class="output-text">
-        <tspan class="highlight-cyan" font-weight="600">sachin_kumar_upadhyay</tspan> · systems &amp; full-stack engineer · product builder
-      </text>
-    </g>
+  <!-- OUTPUT 1: (y=114) -->
+  <text x="52" y="114" class="f-mono output step-2">
+    <tspan class="cyan" font-weight="600">sachin_kumar_upadhyay</tspan> · systems &amp; full-stack engineer · product builder
+  </text>
 
-    <!-- LINE 2: $ cat stack.json -->
-    <g transform="translate(0, 70)" class="line-2">
-      <text x="0" y="0" class="prompt-sym">$</text>
-      <g clip-path="url(#clip-cmd2)">
-        <text x="20" y="0" class="cmd-text">cat core-stack.json</text>
-      </g>
-    </g>
+  <!-- LINE 2: $ cat core-stack.json (y=154) -->
+  <text x="35" y="154" class="f-mono step-3">
+    <tspan class="prompt">$ </tspan>
+    <tspan class="cmd">cat core-stack.json</tspan>
+  </text>
 
-    <!-- OUTPUT 2 -->
-    <g transform="translate(20, 96)" class="out-2">
-      <text x="0" y="0" class="output-text">
-        <tspan class="highlight-cyan">TypeScript</tspan> ➔ 
-        <tspan class="highlight-cyan">React/Next.js</tspan> ➔ 
-        <tspan class="highlight-green">Node.js</tspan> ➔ 
-        <tspan class="highlight-purple">PostgreSQL/Redis</tspan> ➔ 
-        <tspan class="highlight-orange">Docker/Linux</tspan>
-      </text>
-    </g>
+  <!-- OUTPUT 2: (y=180) -->
+  <text x="52" y="180" class="f-mono output step-4">
+    <tspan class="cyan">TypeScript</tspan> ➔ 
+    <tspan class="cyan">React/Next.js</tspan> ➔ 
+    <tspan class="green">Node.js</tspan> ➔ 
+    <tspan class="purple">PostgreSQL/Redis</tspan> ➔ 
+    <tspan class="orange">Docker/Linux</tspan>
+  </text>
 
-    <!-- LINE 3: $ git log -1 -->
-    <g transform="translate(0, 140)" class="line-3">
-      <text x="0" y="0" class="prompt-sym">$</text>
-      <g clip-path="url(#clip-cmd3)">
-        <text x="20" y="0" class="cmd-text">git log -1 --pretty=oneline</text>
-      </g>
-    </g>
+  <!-- LINE 3: $ git log -1 (y=220) -->
+  <text x="35" y="220" class="f-mono step-5">
+    <tspan class="prompt">$ </tspan>
+    <tspan class="cmd">git log -1 --pretty=oneline</tspan>
+  </text>
 
-    <!-- OUTPUT 3 -->
-    <g transform="translate(20, 166)" class="out-3">
-      <text x="0" y="0" class="output-text">
-        <tspan fill="#e3b341">b42f9a1</tspan> ➔ <tspan class="highlight-green">feat:</tspan> ship scalable microservices with sub-100ms latency
-      </text>
-    </g>
+  <!-- OUTPUT 3: (y=246) -->
+  <text x="52" y="246" class="f-mono output step-6">
+    <tspan class="yellow">b42f9a1</tspan> ➔ <tspan class="green">feat:</tspan> ship scalable microservices with sub-100ms latency
+  </text>
 
-    <!-- LINE 4: $ ./focus -->
-    <g transform="translate(0, 210)" class="line-4">
-      <text x="0" y="0" class="prompt-sym">$</text>
-      <g clip-path="url(#clip-cmd4)">
-        <text x="20" y="0" class="cmd-text">./focus --continuous-mode</text>
-      </g>
-      <!-- Blinking active cursor at end -->
-      <g class="final-cursor" transform="translate(262, -14)">
-        <rect width="9" height="17" rx="2" class="cursor" />
-      </g>
-    </g>
+  <!-- LINE 4: $ ./focus (y=286) -->
+  <text x="35" y="286" class="f-mono step-7">
+    <tspan class="prompt">$ </tspan>
+    <tspan class="cmd">./focus --continuous-mode</tspan>
+  </text>
+  
+  <!-- Active Blinking Cursor on Line 4 (y=273) -->
+  <rect x="268" y="272" width="9" height="17" rx="2" class="cursor step-8" />
 
-  </g>
-
-  <!-- Bottom Status Bar inside terminal -->
+  <!-- BOTTOM STATUS BAR -->
   <line x1="2" y1="345" x2="848" y2="345" stroke="#161b26" stroke-width="1.5" />
   
-  <g transform="translate(30, 363)" class="f-mono" font-size="12">
-    <circle cx="4" cy="-4" r="3.5" fill="#00e676" />
-    <text x="14" y="0" fill="#00e676" font-weight="600">main</text>
-    <text x="75" y="0" fill="#484f58">↑1 · 0</text>
-    <text x="145" y="0" fill="#484f58">telemetry: <tspan fill="#00f2fe">active</tspan></text>
-    <text x="790" y="0" fill="#484f58" text-anchor="end">utf-8 · zsh · v2026.11</text>
-  </g>
+  <circle cx="34" cy="360" r="3.5" fill="#00e676" />
+  <text x="44" y="364" fill="#00e676" font-size="12" font-weight="600" class="f-mono">main</text>
+  <text x="105" y="364" fill="#484f58" font-size="12" class="f-mono">↑1 · 0</text>
+  <text x="175" y="364" fill="#484f58" font-size="12" class="f-mono">telemetry: <tspan class="cyan">active</tspan></text>
+  <text x="815" y="364" fill="#484f58" font-size="12" text-anchor="end" class="f-mono">utf-8 · zsh · v2026.11</text>
 </svg>
