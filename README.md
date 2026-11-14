@@ -16,23 +16,9 @@
 
 ### ⚡ Telemetry & Diagnostics
 
-```bash
-$ whoami
-> Sachin Kumar Upadhyay [Software Engineer & Systems Builder]
-
-$ cat core-principles.json
-{
-  "code": "Strongly typed > loosely assumed",
-  "architecture": "Event-driven, resilient by design",
-  "metric_that_matters": "Time-to-Production & sub-100ms P99 latency",
-  "status": "Engineering high-impact solutions"
-}
-
-$ git log -1 --pretty=format:"%h - %an: %s (%cr)"
-> b42f9a1 - Sachin: feat: optimize cache layer & deploy production microservice (just now)
-```
-
----
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sachin2711-code/sachin2711-code/main/terminal.svg" width="100%" alt="Interactive Terminal" />
+</p>
 
 ### 🛠️ Technical Arsenal
 
